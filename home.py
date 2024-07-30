@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import os
 
 # Set page config
 st.set_page_config(page_title="Portfolio Gcdelgado", page_icon=":memo:", layout="wide")
@@ -110,7 +111,7 @@ st.markdown('<div class="container"><section class="intro"><h1>Hello, I\'m Guilh
 # Projects section
 st.markdown('<div class="container"><section class="projects">', unsafe_allow_html=True)
 
-projects = pd.read_csv("../Streamlit/data/projects.csv")
+projects = pd.read_csv("../streamlit-portfolio/data/projects.csv")
 
 cols = st.columns(len(projects))
 hide = """
