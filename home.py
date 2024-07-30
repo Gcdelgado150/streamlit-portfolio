@@ -105,6 +105,8 @@ st.markdown(
 # Header
 st.markdown('<header><div class="container"><h1>My Portfolio</h1></div></header>', unsafe_allow_html=True)
 
+st.divider()
+
 # Introduction section
 st.markdown('<div class="container"><section class="intro"><h1>Hello, I\'m Guilherme</h1><p>Welcome to my portfolio. Here you can find some of the projects I\'ve been working on and the code behind them. Feel free to explore and get in touch if you have any questions or opportunities!</p></section></div>', unsafe_allow_html=True)
 
@@ -113,15 +115,47 @@ st.markdown('<div class="container"><section class="projects">', unsafe_allow_ht
 
 projects = pd.read_csv("../streamlit-portfolio/data/projects.csv")
 
-cols = st.columns(len(projects))
-hide = """
-            <style>
-            ul.streamlit-expander {
-                overflow: scroll;
-                width: 1500px;
-            </style>
-            """
+st.markdown(
+    """
+    <style>
+    .project {
+        width: 300px;
+        height: 200px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+        margin: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: center;
+    }
+    .project h3 {
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+    .project p {
+        margin-bottom: 0px;
+    }
+    .project a {
+        margin: 0 auto; /* Center the button horizontally */
+        text-decoration: none;
+        color: white;
+        background-color: #007bff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+    .project a:hover {
+        background-color: #0056b3;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
+cols = st.columns(len(projects))
 for i, row in enumerate(projects.iterrows()):
     with cols[i]:
         st.markdown(
@@ -134,7 +168,6 @@ for i, row in enumerate(projects.iterrows()):
             """,
             unsafe_allow_html=True
         )
-st.markdown(hide, unsafe_allow_html=True)
 
 st.markdown('</section></div>', unsafe_allow_html=True)
 
