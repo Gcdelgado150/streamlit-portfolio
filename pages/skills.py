@@ -2,8 +2,8 @@ import streamlit as st
 from streamlit_extras.grid import grid 
 import json
 
+st.set_page_config(page_title="Skills", page_icon=":memo:", layout="wide")
 st.markdown("# Skills")
-st.sidebar.markdown("# Skills")
 
 with open("../streamlit-portfolio/data/skill_tree.json", "r") as f:
     skills_tree = json.load(f)

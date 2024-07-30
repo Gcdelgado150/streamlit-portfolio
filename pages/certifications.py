@@ -1,10 +1,9 @@
 import streamlit as st
 from streamlit_extras.grid import grid 
-import json
 import pandas as pd
 
+st.set_page_config(page_title="Certifications", page_icon=":memo:", layout="wide")
 st.markdown("# Certifications")
-st.sidebar.markdown("# Certifications")
 
 df = pd.read_csv("../streamlit-portfolio/data/certifications.csv")
 
