@@ -6,7 +6,7 @@ import pandas as pd
 st.markdown("# Certifications")
 st.sidebar.markdown("# Certifications")
 
-df = pd.read_csv("/home/gcdelgado/Documents/Projetos/streamlit-portfolio/data/certifications.csv")
+df = pd.read_csv("../streamlit-portfolio/data/certifications.csv")
 
 # Custom CSS
 st.markdown("""
