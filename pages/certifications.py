@@ -3,7 +3,7 @@ from streamlit_extras.grid import grid
 import pandas as pd
 
 st.set_page_config(page_title="Certifications", page_icon=":memo:", layout="wide")
-st.markdown("# Certifications")
+st.header(":blue[Certifications]", divider="rainbow")
 
 df = pd.read_csv("../streamlit-portfolio/data/certifications.csv")
 df["Link"] = df['Link'].astype(str)

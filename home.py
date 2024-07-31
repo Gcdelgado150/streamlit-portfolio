@@ -97,24 +97,54 @@ st.markdown(
         footer a:hover {
             text-decoration: underline;
         }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 100px; /* Adjust the gap between buttons as needed */
+        }
+        .button {
+            background-color: #f0f0f0;
+            border: none;
+            color: black;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
     </style>
     """, 
     unsafe_allow_html=True
 )
 
 # Header
-st.markdown('<header><div class="container"><h1>My Portfolio</h1></div></header>', unsafe_allow_html=True)
+st.markdown('<header><div class="container"><h1>Guilherme C. Delgado</h1></div></header>', unsafe_allow_html=True)
+
+st.markdown("""
+    <div class="button-container">
+        <button class="button" onclick="window.location.href='pages/certifications'">Certifications</button>
+        <button class="button" onclick="window.location.href='/skills'">Skills</button>
+        <button class="button" onclick="window.location.href='/contact'">Contact</button>
+    </div>
+            """, unsafe_allow_html=True)
 
 st.divider()
 
 # Introduction section
-st.markdown('<div class="container"><section class="intro"><h1>Hello, I\'m Guilherme</h1><p>Welcome to my portfolio. Here you can find some of the projects I\'ve been working on and the code behind them. Feel free to explore and get in touch if you have any questions or opportunities!</p></section></div>', unsafe_allow_html=True)
+st.markdown("""<div class="container">
+            <section class="intro">
+            <p>Welcome to my portfolio. <br>
+            Here you can find some of the projects 
+            I\'ve been working on and the code behind them. 
+            Feel free to explore and get in touch if you have any questions or opportunities!</p></section></div>""", 
+            unsafe_allow_html=True)
 
-# Projects section
-st.markdown('<div class="container"><section class="projects">', unsafe_allow_html=True)
+st.divider()
 
-projects = pd.read_csv("../streamlit-portfolio/data/projects.csv")
-
+# Styling
 st.markdown(
     """
     <style>
@@ -155,6 +185,8 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+# https://www.kaggle.com/gnomows/code
+projects = pd.read_csv("../streamlit-portfolio/data/projects.csv")
 cols = st.columns(len(projects))
 for i, row in enumerate(projects.iterrows()):
     with cols[i]:
@@ -168,8 +200,6 @@ for i, row in enumerate(projects.iterrows()):
             """,
             unsafe_allow_html=True
         )
-
-st.markdown('</section></div>', unsafe_allow_html=True)
 
 # Footer
 st.markdown(
