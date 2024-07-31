@@ -6,6 +6,7 @@ st.set_page_config(page_title="Certifications", page_icon=":memo:", layout="wide
 st.markdown("# Certifications")
 
 df = pd.read_csv("../streamlit-portfolio/data/certifications.csv")
+df["Link"] = df['Link'].astype(str)
 
 # Custom CSS
 st.markdown("""
@@ -30,8 +31,9 @@ st.markdown("""
 
 for i, cert in df.iterrows():
     with st.expander(cert["Certificate"]):
-        print(cert['Link'])
-        if cert['Link'] != None:
+        print(cert['Link'], type(cert["Link"]))
+
+        if cert['Link'] != 'nan':
             st.markdown(f"""
                 <div class="certificate-container">
                     <div class="certificate-title">{cert["Certificate"]}</div>
